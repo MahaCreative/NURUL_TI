@@ -5,8 +5,6 @@ import { Link, router } from "@inertiajs/react";
 
 import React, { useEffect, useRef, useState } from "react";
 
-const initialData = [0]; // Data awal untuk chart
-
 function Home(props) {
     const [perangkat, setPerangkat] = useState([]);
 

@@ -45,7 +45,7 @@ export default function GuestLayout({ children }) {
                             </div>
                             <div className="text-red-500">
                                 <Fab color="inherit">
-                                    {/* <Link
+                                    <Link
                                         as="button"
                                         method="post"
                                         href={route("proses-logout")}
@@ -53,7 +53,7 @@ export default function GuestLayout({ children }) {
                                         <Tooltip title="Logout">
                                             <Logout color="inherit" />
                                         </Tooltip>
-                                    </Link> */}
+                                    </Link>
                                 </Fab>
                             </div>
                         </div>
