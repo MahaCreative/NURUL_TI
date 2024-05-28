@@ -11,6 +11,7 @@ class PerangkatController extends Controller
     public function index(Request $request)
     {
         $query = Perangkat::query()->where('user_id', $request->user()->id);
+
         $perangkat = $query->latest()->get();
         return inertia('Perangkat/Index', compact('perangkat'));
     }

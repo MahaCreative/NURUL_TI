@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group([
-    'middleware' => 'auth:api',
+    'middleware' => 'api',
     'prefix' => 'auth'
 ], function () {
     Route::post('get-perangkat', function (Request $request) {
@@ -48,10 +48,11 @@ Route::group([
 Route::group([
 
     'middleware' => 'api',
-    'prefix' => 'auth'
+    'prefix' => 'auth',
+
 
 ], function ($router) {
 
     Route::post('login', [LoginController::class, 'login']);
     Route::post('refresh', [LoginController::class, 'refresh']);
-});
+})->middleware('auth:api');
