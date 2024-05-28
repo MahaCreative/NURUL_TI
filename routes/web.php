@@ -67,7 +67,7 @@ Route::group(['middleware' => 'auth:web'], function () {
         Route::get('get', function (Request $request) {
 
             $perangkat = Perangkat::where('user_id', $request->user()->id)->with(['data' => function ($q) {
-                $q->latest()->get();
+                $q->get();
             }])->get();
             return response()->json($perangkat);
         })->name('get');

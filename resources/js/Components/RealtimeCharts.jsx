@@ -24,6 +24,15 @@ export default function RealtimeCharts({ perangkat }) {
                 title: {
                     text: "Suhu Perangkat: " + device.nama_perangkat,
                 },
+                yAxis: {
+                    title: {
+                        text: "Suhu (°C)",
+                    },
+                    min: 16,
+                    max: 40,
+                    tickInterval: 3,
+                },
+
                 xAxis: {
                     categories: categories, // Set sumbu x dengan data waktu
                 },
@@ -48,6 +57,14 @@ export default function RealtimeCharts({ perangkat }) {
                 },
                 title: {
                     text: "Kelembapan Ruangan: " + device.nama_perangkat,
+                },
+                yAxis: {
+                    title: {
+                        text: "Kelembapan Ruangna (°C)",
+                    },
+                    min: 16,
+                    max: 40,
+                    tickInterval: 3,
                 },
                 xAxis: {
                     categories: categories, // Set sumbu x dengan data waktu
@@ -117,19 +134,39 @@ export default function RealtimeCharts({ perangkat }) {
                     <CircularProgressbar
                         minValue={perangkat.min_suhu}
                         maxValue={perangkat.max_suhu}
-                        value={perangkat.data[0].suhu}
-                        text={`${perangkat.data[0].suhu}%`}
+                        value={perangkat.data[perangkat.data.length - 1].suhu}
+                        text={`${
+                            perangkat.data[perangkat.data.length - 1].suhu
+                        }%`}
                         circleRatio={0.75}
                         styles={buildStyles({
                             rotation: 1 / 2 + 1 / 8,
                             strokeLinecap: "butt",
                             trailColor: "#eee",
                             textColor: `rgb(${
-                                255 - (perangkat.data[0].suhu / 100) * 255
-                            }, ${(perangkat.data[0].suhu / 100) * 255}, 0)`,
+                                255 -
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .suhu /
+                                    100) *
+                                    255
+                            }, ${
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .suhu /
+                                    100) *
+                                255
+                            }, 0)`,
                             pathColor: `rgb(${
-                                255 - (perangkat.data[0].suhu / 100) * 255
-                            }, ${(perangkat.data[0].suhu / 100) * 255}, 0)`,
+                                255 -
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .suhu /
+                                    100) *
+                                    255
+                            }, ${
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .suhu /
+                                    100) *
+                                255
+                            }, 0)`,
                         })}
                     />
                 </div>
@@ -140,21 +177,41 @@ export default function RealtimeCharts({ perangkat }) {
                     <CircularProgressbar
                         minValue={perangkat.min_hum}
                         maxValue={perangkat.max_hum}
-                        value={perangkat.data[0].humidity}
-                        text={`${perangkat.data[0].humidity}%`}
+                        value={
+                            perangkat.data[perangkat.data.length - 1].humidity
+                        }
+                        text={`${
+                            perangkat.data[perangkat.data.length - 1].humidity
+                        }%`}
                         circleRatio={0.75}
                         styles={buildStyles({
                             rotation: 1 / 2 + 1 / 8,
                             strokeLinecap: "butt",
                             trailColor: "#eee",
                             textColor: `rgb(${
-                                (perangkat.data[0].humidity / 100) * 255
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .humidity /
+                                    100) *
+                                255
                             }, ${
-                                255 - (perangkat.data[0].humidity / 100) * 255
+                                255 -
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .humidity /
+                                    100) *
+                                    255
                             }, 0)`,
                             pathColor: `rgb(${
-                                255 - (perangkat.data[0].humidity / 100) * 255
-                            }, ${(perangkat.data[0].humidity / 100) * 255}, 0)`,
+                                255 -
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .humidity /
+                                    100) *
+                                    255
+                            }, ${
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .humidity /
+                                    100) *
+                                255
+                            }, 0)`,
                         })}
                     />
                 </div>
@@ -165,24 +222,42 @@ export default function RealtimeCharts({ perangkat }) {
                     <CircularProgressbar
                         minValue={perangkat.min_kt}
                         maxValue={perangkat.max_kt}
-                        value={perangkat.data[0].kelembapan_tanah}
-                        text={`${perangkat.data[0].kelembapan_tanah}%`}
+                        value={
+                            perangkat.data[perangkat.data.length - 1]
+                                .kelembapan_tanah
+                        }
+                        text={`${
+                            perangkat.data[perangkat.data.length - 1]
+                                .kelembapan_tanah
+                        }%`}
                         circleRatio={0.75}
                         styles={buildStyles({
                             rotation: 1 / 2 + 1 / 8,
                             strokeLinecap: "butt",
                             trailColor: "#eee",
                             textColor: `rgb(${
-                                (perangkat.data[0].kelembapan_tanah / 100) * 255
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .kelembapan_tanah /
+                                    100) *
+                                255
                             }, ${
                                 255 -
-                                (perangkat.data[0].kelembapan_tanah / 100) * 255
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .kelembapan_tanah /
+                                    100) *
+                                    255
                             }, 0)`,
                             pathColor: `rgb(${
                                 255 -
-                                (perangkat.data[0].kelembapan_tanah / 100) * 255
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .kelembapan_tanah /
+                                    100) *
+                                    255
                             }, ${
-                                (perangkat.data[0].kelembapan_tanah / 100) * 255
+                                (perangkat.data[perangkat.data.length - 1]
+                                    .kelembapan_tanah /
+                                    100) *
+                                255
                             }, 0)`,
                         })}
                     />

@@ -50,7 +50,7 @@ class PerangkatController extends Controller
     {
 
         $query = Perangkat::query()->with(['data' => function ($q) {
-            $q->latest()->get();
+            $q->get();
         }])->where('id', $request->id);
         $perangkat = $query->latest()->first();
         return inertia('Perangkat/Show', compact('perangkat'));
