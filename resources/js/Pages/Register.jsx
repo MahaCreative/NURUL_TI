@@ -105,7 +105,7 @@ export default function Register(props) {
                         Register
                     </button>
                     <Link
-                        href={route("register")}
+                        href={route("login")}
                         className="w-full bg-blue-600 text-white rounded-md py-2 hover:cursor-pointer block mt-2 text-center
                     "
                     >

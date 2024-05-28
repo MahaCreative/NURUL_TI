@@ -10,7 +10,7 @@ class PerangkatController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Perangkat::query();
+        $query = Perangkat::query()->where('user_id', $request->user()->id);
         $perangkat = $query->latest()->get();
         return inertia('Perangkat/Index', compact('perangkat'));
     }
@@ -26,7 +26,7 @@ class PerangkatController extends Controller
             "min_kt" => 'required|numeric|lte:max_kt',
             "max_kt" => 'required|numeric|gte:min_kt',
         ]);
-        $attr['user_id'] = 1;
+        $attr['user_id'] = $request->user()->id;
         $perangkat = Perangkat::create($attr);
         $data = Data::create([
             'perangkat_id' => $perangkat->id,

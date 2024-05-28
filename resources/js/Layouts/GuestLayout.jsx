@@ -15,10 +15,10 @@ export default function GuestLayout({ children }) {
                 </h3>
             </div>
             {children}
-            <div className="relative w-full justify-end flex px-4">
+            <div className="relative w-full justify-end flex px-4 ">
                 <div>
                     <div
-                        className={`absolute bottom-14 right-4 transition-all duration-300 ${
+                        className={`absolute bottom-24 right-4 transition-all duration-300 ${
                             Menu
                                 ? "max-h-screen opacity-100"
                                 : "max-h-0 opacity-50"
@@ -26,7 +26,7 @@ export default function GuestLayout({ children }) {
                     >
                         <div className="flex flex-col gap-2">
                             <div className="text-blue-500">
-                                <Link href={route("home")}>
+                                <Link href={route("dashboard")}>
                                     <Fab color="inherit">
                                         <Tooltip title="Home">
                                             <Home color="inherit" />
@@ -58,7 +58,7 @@ export default function GuestLayout({ children }) {
                             </div>
                         </div>
                     </div>
-                    <div className="text-blue-500">
+                    <div className="text-blue-500 absolute -top-24 right-4">
                         <Fab onClick={() => setMenu(!Menu)} color="inherit">
                             <Widgets color="inherit" />
                         </Fab>

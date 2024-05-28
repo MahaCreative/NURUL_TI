@@ -23,10 +23,10 @@ function Home(props) {
         const interval = setInterval(fetchData, 1000); // Memanggil fetchData setiap 5 detik
         return () => clearInterval(interval); // Membersihkan interval saat komponen dibongkar
     }, []);
-
+    console.log(perangkat);
     return (
         <>
-            <div className="bg-gray-200 w-full h-full flex justify-center text-white max-h-[80vh] overflow-auto">
+            <div className="bg-gray-200 w-full h-full flex justify-center text-white max-h-[95vh] overflow-auto">
                 <div className="py-6 px-8">
                     <div className="flex justify-between gap-3 ">
                         <div className="bg-blue-500 flex items-center rounded-md py-1 px-2 gap-3 w-full">
