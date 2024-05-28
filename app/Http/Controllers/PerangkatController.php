@@ -49,7 +49,9 @@ class PerangkatController extends Controller
     public function show(Request $request)
     {
 
-        $query = Perangkat::query()->with('data')->where('id', $request->id);
+        $query = Perangkat::query()->with(['data' => function ($q) {
+            $q->latest()->get();
+        }])->where('id', $request->id);
         $perangkat = $query->latest()->first();
         return inertia('Perangkat/Show', compact('perangkat'));
     }
